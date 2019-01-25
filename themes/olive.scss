@@ -1,0 +1,336 @@
+/*!
+ * Marp / Marpit Gaia theme.
+ *
+ * @theme olive
+ * @author MATSUBARA Nobutada
+ */
+
+$color-light: #FFF2DD;
+$color-dark: #4e4f53;
+$color-highlight: #CCA551;
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900|Roboto+Mono:400,700');
+
+@mixin color-scheme($bg, $text, $highlight) {
+  color: $text;
+  background-color: $bg;
+
+  a,
+  mark {
+    color: $highlight;
+  }
+
+  code {
+    background: mix($text, $bg, 80%);
+    color: $bg;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    strong {
+      color: $highlight;
+    }
+
+    img {
+      display: block;
+      margin: auto;
+    }
+  }
+
+  pre > code {
+    background: $text;
+  }
+
+  header,
+  footer,
+  section::after,
+  blockquote::before,
+  blockquote::after {
+    color: mix($text, $bg, 80%);
+  }
+
+  table {
+    th,
+    td {
+      border-color: $text;
+    }
+
+    thead th {
+      background: $text;
+      color: $bg;
+    }
+
+    tbody > tr:nth-child(odd) {
+      td,
+      th {
+        background: rgba($text, 0.1);
+      }
+    }
+  }
+}
+
+svg[data-marp-fitting='svg'] {
+  max-height: 580px; // Slide height - padding * 2
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0.5em 0 0 0;
+
+  strong {
+    font-weight: inherit;
+  }
+}
+
+h1 {
+  font-size: 1.8em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+h4 {
+  font-size: 1.1em;
+}
+
+h5 {
+  font-size: 1em;
+}
+
+h6 {
+  font-size: 0.9em;
+}
+
+p,
+blockquote {
+  margin: 1em 0 0 0;
+}
+
+ul,
+ol {
+  > li {
+    margin: 0.3em 0 0 0;
+
+    > p {
+      margin: 0.6em 0 0 0;
+    }
+  }
+}
+
+code {
+  display: inline-block;
+  font-family: 'NasuM', 'Roboto Mono', monospace;
+  font-size: 0.8em;
+  letter-spacing: 0;
+  margin: -0.1em 0.15em;
+  padding: 0.1em 0.2em;
+  vertical-align: baseline;
+}
+
+pre {
+  display: block;
+  margin: 1em 0 0 0;
+  min-height: 1em;
+  overflow: visible;
+
+  code {
+    box-sizing: border-box;
+    margin: 0;
+    min-width: 100%;
+    padding: 0.5em;
+    font-size: 0.7em;
+
+    svg[data-marp-fitting='svg'] {
+      max-height: calc(580px - 1em);
+    }
+  }
+}
+
+@mixin lead-mode {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-align: center;
+
+    svg[data-marp-fitting='svg'] {
+      --preserve-aspect-ratio: xMidYMid meet;
+    }
+  }
+
+  p {
+    text-align: center;
+  }
+
+  blockquote {
+    > h1,
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6,
+    > p {
+      text-align: left;
+    }
+
+    svg[data-marp-fitting='svg']:not([data-marp-fitting-math]) {
+      --preserve-aspect-ratio: xMinYMin meet;
+    }
+  }
+
+  ul,
+  ol {
+    > li > p {
+      text-align: left;
+    }
+  }
+
+  table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+blockquote {
+  margin: 1em 0 0 0;
+  padding: 0 1em;
+  position: relative;
+
+  &::after,
+  &::before {
+    content: '“';
+    display: block;
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    position: absolute;
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+    bottom: 0;
+    transform: rotate(180deg);
+  }
+
+  > *:first-child {
+    margin-top: 0;
+  }
+}
+
+mark {
+  background: transparent;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin: 1em 0 0 0;
+
+  th,
+  td {
+    padding: 0.2em 0.4em;
+    border-width: 1px;
+    border-style: solid;
+  }
+}
+
+section {
+  background-image: linear-gradient(
+    135deg,
+    rgba(#888, 0),
+    rgba(#888, 0.02) 50%,
+    rgba(#fff, 0) 50%,
+    rgba(#fff, 0.05)
+  );
+  font-size: 28px;
+  font-family: '源真ゴシック', 'ヒラギノ角ゴ Pro W3', 'Lato', 'Avenir Next', 'Avenir', 'Trebuchet MS', 'Segoe UI',
+    sans-serif;
+  line-height: 1.35;
+  letter-spacing: 1.25px;
+  padding: 70px;
+  width: 960px;
+  height: 720px;
+
+  > *:first-child,
+  > header:first-child + * {
+    margin-top: 0;
+  }
+
+  @include color-scheme($color-dark, $color-light, $color-highlight);
+
+  &.invert {
+    @include color-scheme($color-light, $color-dark, $color-highlight);
+  }
+
+  &.olive {
+    @include color-scheme($color-highlight, $color-dark, $color-light);
+  }
+
+  &.lead {
+    @include lead-mode
+  }
+
+  &.lead-invert {
+    @include color-scheme($color-light, $color-dark, $color-highlight);
+    @include lead-mode
+  }
+
+  &.lead-olive {
+    @include color-scheme($color-highlight, $color-dark, $color-light);
+    @include lead-mode
+  }
+}
+
+header,
+footer,
+section::after {
+  box-sizing: border-box;
+  font-size: 66%;
+  height: 70px;
+  line-height: 50px;
+  overflow: hidden;
+  padding: 10px 25px;
+  position: absolute;
+}
+
+header {
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+footer {
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+section::after {
+  right: 0;
+  bottom: 0;
+  font-size: 80%;
+}
