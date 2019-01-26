@@ -3,7 +3,7 @@
 Theme for Marp Next
 
 ```
-$ scss --watch theme:theme
+$ scss --watch themes:themes
 ```
 
 ## Themes
