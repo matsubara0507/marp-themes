@@ -1,0 +1,437 @@
+/*!
+ * Marp / Marpit Colors theme.
+ *
+ * @theme colors
+ * @author MATSUBARA Nobutada
+ */
+
+$green: #32B490;
+$white: #FFF2DD;
+$black: #465A65;
+$red: #FF5152;
+$orange: #FF9000;
+$purple: #454D71;
+$pink: #FF3F80;
+$blue: #01BBD4;
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900|Roboto+Mono:400,700');
+
+@mixin color-scheme($bg, $text, $mark, $code, $codebg) {
+  color: $text;
+  background-color: $bg;
+
+  a,
+  mark {
+    color: $mark;
+  }
+
+  code {
+    background: rgba($codebg, 80%);
+    color: $code;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    strong {
+      color: $mark;
+    }
+
+    img {
+      display: block;
+      margin: auto;
+    }
+  }
+
+  pre > code {
+    background: $codebg;
+    color: $code
+  }
+
+  header,
+  footer,
+  section::after,
+  blockquote::before,
+  blockquote::after {
+    color: mix($text, $bg, 80%);
+  }
+
+  table {
+    th,
+    td {
+      border-color: $text;
+    }
+
+    thead th {
+      background: $text;
+      color: $bg;
+    }
+
+    tbody > tr:nth-child(odd) {
+      td,
+      th {
+        background: rgba($text, 0.1);
+      }
+    }
+  }
+}
+
+svg[data-marp-fitting='svg'] {
+  max-height: 580px; // Slide height - padding * 2
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0.5em 0 0 0;
+
+  strong {
+    font-weight: inherit;
+  }
+}
+
+h1 {
+  font-size: 1.8em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+h4 {
+  font-size: 1.1em;
+}
+
+h5 {
+  font-size: 1em;
+}
+
+h6 {
+  font-size: 0.9em;
+}
+
+p,
+blockquote {
+  margin: 1em 0 0 0;
+}
+
+ul,
+ol {
+  > li {
+    margin: 0.3em 0 0 0;
+
+    > p {
+      margin: 0.6em 0 0 0;
+    }
+  }
+}
+
+code {
+  display: inline-block;
+  font-family: 'NasuM', 'Roboto Mono', monospace;
+  font-size: 0.8em;
+  letter-spacing: 0;
+  margin: -0.1em 0.15em;
+  padding: 0.1em 0.2em;
+  vertical-align: baseline;
+}
+
+pre {
+  display: block;
+  margin: 1em 0 0 0;
+  min-height: 1em;
+  overflow: visible;
+
+  code {
+    box-sizing: border-box;
+    margin: 0;
+    min-width: 100%;
+    padding: 0.5em;
+    font-size: 0.7em;
+
+    svg[data-marp-fitting='svg'] {
+      max-height: calc(580px - 1em);
+    }
+  }
+}
+
+@mixin lead-mode {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-align: center;
+
+    svg[data-marp-fitting='svg'] {
+      --preserve-aspect-ratio: xMidYMid meet;
+    }
+  }
+
+  p {
+    text-align: center;
+  }
+
+  blockquote {
+    > h1,
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6,
+    > p {
+      text-align: left;
+    }
+
+    svg[data-marp-fitting='svg']:not([data-marp-fitting-math]) {
+      --preserve-aspect-ratio: xMinYMin meet;
+    }
+  }
+
+  ul,
+  ol {
+    > li > p {
+      text-align: left;
+    }
+  }
+
+  table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+blockquote {
+  margin: 1em 0 0 0;
+  padding: 0 1em;
+  position: relative;
+
+  &::after,
+  &::before {
+    content: '“';
+    display: block;
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    position: absolute;
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+    bottom: 0;
+    transform: rotate(180deg);
+  }
+
+  > *:first-child {
+    margin-top: 0;
+  }
+}
+
+mark {
+  background: transparent;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin: 1em 0 0 0;
+
+  th,
+  td {
+    padding: 0.2em 0.4em;
+    border-width: 1px;
+    border-style: solid;
+  }
+}
+
+section {
+  background-image: linear-gradient(
+    135deg,
+    rgba(#888, 0),
+    rgba(#888, 0.02) 50%,
+    rgba(#fff, 0) 50%,
+    rgba(#fff, 0.05)
+  );
+  font-size: 28px;
+  font-family: '源真ゴシック', 'ヒラギノ角ゴ Pro W3', 'Lato', 'Avenir Next', 'Avenir', 'Trebuchet MS', 'Segoe UI',
+    sans-serif;
+  line-height: 1.35;
+  letter-spacing: 1.25px;
+  padding: 70px;
+  width: 960px;
+  height: 720px;
+
+  > *:first-child,
+  > header:first-child + * {
+    margin-top: 0;
+  }
+
+  @include color-scheme($white, $black, $black, $white, $black);
+
+  &.invert {
+    @include color-scheme($black, $white, $white, $black, $white);
+  }
+
+  &.lead {
+    @include lead-mode
+  }
+
+  &.lead-invert {
+    @include color-scheme($black, $white, $white, $black, $white);
+    @include lead-mode
+  }
+
+  &.green {
+    @include color-scheme($white, $black, $green, $white, $black);
+  }
+
+  &.invert-green {
+    @include color-scheme($green, $white, $black, $black, $white);
+  }
+
+  &.lead-green {
+    @include color-scheme($white, $black, $green, $white, $black);
+    @include lead-mode
+  }
+
+  &.lead-invert-green {
+    @include color-scheme($green, $white, $black, $black, $white);
+    @include lead-mode
+  }
+
+  &.blue {
+    @include color-scheme($white, $black, $blue, $white, $black);
+  }
+
+  &.invert-blue {
+    @include color-scheme($blue, $white, $black, $black, $white);
+  }
+
+  &.lead-blue {
+    @include color-scheme($white, $black, $blue, $white, $black);
+    @include lead-mode
+  }
+
+  &.lead-invert-blue {
+    @include color-scheme($blue, $white, $black, $black, $white);
+    @include lead-mode
+  }
+  &.pink {
+    @include color-scheme($white, $black, $pink, $white, $black);
+  }
+
+  &.invert-pink {
+    @include color-scheme($pink, $white, $black, $black, $white);
+  }
+
+  &.lead-pink {
+    @include color-scheme($white, $black, $pink, $white, $black);
+    @include lead-mode
+  }
+
+  &.lead-invert-pink {
+    @include color-scheme($pink, $white, $black, $black, $white);
+    @include lead-mode
+  }
+  &.red {
+    @include color-scheme($white, $black, $red, $white, $black);
+  }
+
+  &.invert-red {
+    @include color-scheme($red, $white, $black, $black, $white);
+  }
+
+  &.lead-red {
+    @include color-scheme($white, $black, $red, $white, $black);
+    @include lead-mode
+  }
+
+  &.lead-invert-red {
+    @include color-scheme($red, $white, $black, $black, $white);
+    @include lead-mode
+  }
+  &.purple {
+    @include color-scheme($white, $black, $purple, $white, $black);
+  }
+
+  &.invert-purple {
+    @include color-scheme($purple, $white, $black, $black, $white);
+  }
+
+  &.lead-purple {
+    @include color-scheme($white, $black, $purple, $white, $black);
+    @include lead-mode
+  }
+
+  &.lead-invert-purple {
+    @include color-scheme($purple, $white, $black, $black, $white);
+    @include lead-mode
+  }
+  &.orange {
+    @include color-scheme($white, $black, $orange, $white, $black);
+  }
+
+  &.invert-orange {
+    @include color-scheme($orange, $white, $black, $black, $white);
+  }
+
+  &.lead-orange {
+    @include color-scheme($white, $black, $orange, $white, $black);
+    @include lead-mode
+  }
+
+  &.lead-invert-orange {
+    @include color-scheme($orange, $white, $black, $black, $white);
+    @include lead-mode
+  }
+}
+
+header,
+footer,
+section::after {
+  box-sizing: border-box;
+  font-size: 66%;
+  height: 70px;
+  line-height: 50px;
+  overflow: hidden;
+  padding: 10px 25px;
+  position: absolute;
+}
+
+header {
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+footer {
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+section::after {
+  right: 0;
+  bottom: 0;
+  font-size: 80%;
+}
