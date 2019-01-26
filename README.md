@@ -24,7 +24,7 @@ class:
 ![](images/olive1.jpg)
 ![](images/olive2.jpg)
 
-#### Colors
+### Colors
 
 ```yaml
 theme: colors
@@ -60,3 +60,19 @@ class:
 ```
 
 ![](images/colors.jpg)
+
+### Haskell
+
+```yaml
+theme: haskell
+class:
+- default
+- invert
+- haskell
+- lead
+- lead-invert
+- lead-haskell
+```
+
+![](images/haskell1.jpg)
+![](images/haskell2.jpg)
