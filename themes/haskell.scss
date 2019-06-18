@@ -15,6 +15,7 @@ $color-dark: #4e4f53;
 $color-highlight: #CCA551;
 
 @import url('https://fonts.googleapis.com/css?family=Lato:400,900|Roboto+Mono:400,700');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/github.min.css');
 
 @mixin color-scheme($bg, $text, $highlight, $bg-code, $bg-image) {
   color: $text;
