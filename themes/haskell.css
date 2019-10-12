@@ -4,6 +4,8 @@
  *
  * @theme haskell
  * @author MATSUBARA Nobutada
+ * @size 4:3 960px 720px
+ * @size 16:9 1280px 720px
  */
 @import url("https://fonts.googleapis.com/css?family=Lato:400,900|Roboto+Mono:400,700");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/github.min.css");
@@ -117,8 +119,6 @@ section {
   line-height: 1.35;
   letter-spacing: 1.25px;
   padding: 70px;
-  width: 960px;
-  height: 720px;
   color: #323232;
   background-color: #FFFFFF;
   background: ""; }
