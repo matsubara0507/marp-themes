@@ -3,6 +3,8 @@
  *
  * @theme olive
  * @author MATSUBARA Nobutada
+ * @size 4:3 960px 720px
+ * @size 16:9 1280px 720px
  */
 
 $color-light: #FFF2DD;
@@ -273,8 +275,6 @@ section {
   line-height: 1.35;
   letter-spacing: 1.25px;
   padding: 70px;
-  width: 960px;
-  height: 720px;
 
   > *:first-child,
   > header:first-child + * {
